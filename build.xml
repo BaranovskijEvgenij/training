@@ -1,0 +1,31 @@
+<project name="training" default="help" basedir=".">
+	<property name="src" location="src"/>
+
+
+  <target name="help">
+    <echo>
+      Help for the build script...
+    </echo>
+  </target>
+
+  <target name="clean">
+    	<delete dir="buildTT"/>
+
+  </target>
+  
+
+
+  <target name="build" depends="clean">
+       <mkdir dir="buildTT/911"/>
+	<mkdir dir="delMeNow"/>
+        <javac srcdir="." destdir="buildTT/911"/>
+        
+                               
+  </target>
+
+  <target name="run">
+
+
+ </target>
+
+</project>
