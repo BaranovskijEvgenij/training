@@ -1,5 +1,16 @@
-<project name="training" default="help" basedir=".">
-	<property name="src" location="src"/>
+<project name="training" default="war" basedir=".">
+	<property file="training/build.properties"/>
+        
+ 
+               
+
+<path id="classpath">
+  <fileset dir="${lib.dir}" includes="servlet-api.jar"/>
+</path>
+
+
+
+
 
 
   <target name="help">
@@ -9,23 +20,42 @@
   </target>
 
   <target name="clean">
-    	<delete dir="buildTT"/>
+    	<delete dir="build.dir"/>
 
   </target>
   
 
 
   <target name="build" depends="clean">
-       <mkdir dir="buildTT/911"/>
-	<mkdir dir="delMeNow"/>
-        <javac srcdir="." destdir="buildTT/911"/>
         
+	 <mkdir dir="build.dir/buildTT/911"/>
+
+
+
+
+</target>	       
+         
+     <target name="complite" depends="build">
+ <javac srcdir="." destdir="build.dir/buildTT/911">
+         <classpath location="../lib/google-gson-1.4/gson-1.4.jar"/>
+    </javac>                                                        
                                
   </target>
 
-  <target name="run">
+   
+                                                                           
+
+                   
+
+<target name="war" depends="complite">
+    <echo>Building the war file</echo>
+    <war destfile="dist.dir/project.name.war" webxml="build.dir/buildTT/911">
+        <fileset dir="build.dir"/>
+    </war>
+</target>
 
 
- </target>
 
-</project>
+
+
+    	</project>
