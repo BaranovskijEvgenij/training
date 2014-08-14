@@ -1,61 +1,24 @@
-<project name="training" default="war" basedir=".">
-	<property file="training/build.properties"/>
-        
- 
-               
-
-<path id="classpath">
-  <fileset dir="${lib.dir}" includes="servlet-api.jar"/>
-</path>
-
-
-
-
-
-
-  <target name="help">
-    <echo>
-      Help for the build script...
-    </echo>
-  </target>
+<project name="training" default="help" basedir=".">
+       <target name="help">
+    	<echo>
+    	  Help for the build script...
+       </echo>
+      		 <echo>
+		     /if you write "ant build"  then  Create a folder "build.dir/buildTT" 
+		     /if you write "ant clean" then deleted folder "build.dir/buildTT"
+		     /if you write "ant run" then compiles Java files 
+	        </echo>
+      </target>
 
   <target name="clean">
-    	<delete dir="build.dir"/>
-
+    	<delete dir="buildTT"/>
   </target>
   
-
-
-  <target name="build" depends="clean">
-        
-	 <mkdir dir="build.dir/buildTT/911"/>
-
-
-
-
-</target>	       
+ 		 <target name="build" depends="clean">
+ 		      <mkdir dir="buildTT"/> 
+		</target>	       
          
-     <target name="complite" depends="build">
- <javac srcdir="." destdir="build.dir/buildTT/911">
-         <classpath location="../lib/google-gson-1.4/gson-1.4.jar"/>
-    </javac>                                                        
-                               
-  </target>
-
-   
-                                                                           
-
-                   
-
-<target name="war" depends="complite">
-    <echo>Building the war file</echo>
-    <war destfile="dist.dir/project.name.war" webxml="build.dir/buildTT/911">
-        <fileset dir="build.dir"/>
-    </war>
-</target>
-
-
-
-
-
-    	</project>
+     <target name="run" depends="build">
+      <javac srcdir="." destdir="buildTT"/>
+    </target>
+</project>
