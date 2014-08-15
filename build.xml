@@ -4,21 +4,35 @@
     	  Help for the build script...
        </echo>
       		 <echo>
-		     /if you write "ant build"  then  Create a folder "build.dir/buildTT" 
+		     /if you write "ant build"  then  Create a folder "build.dir/buildTT" and  compiles Java files
 		     /if you write "ant clean" then deleted folder "build.dir/buildTT"
-		     /if you write "ant run" then compiles Java files 
+		     /if you write "ant run" then start class
 	        </echo>
       </target>
 
   <target name="clean">
-    	<delete dir="buildTT"/>
+    	<delete dir="build"/>
   </target>
   
  		 <target name="build" depends="clean">
- 		      <mkdir dir="buildTT"/> 
+ 		      <mkdir dir="build"/> 
+			 <javac srcdir="." destdir="build"/>
+				
+                             
+ 
+ 
+						
+                             
+                             
+				
 		</target>	       
          
      <target name="run" depends="build">
-      <javac srcdir="." destdir="buildTT"/>
+		
+        <java classpath="build" classname="HelloDate"/>      
+                                                
     </target>
 </project>
+
+                                                                    
+						
