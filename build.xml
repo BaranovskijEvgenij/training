@@ -2,10 +2,9 @@
        <target name="help">
     	<echo>
     	  Help for the build script...
-       </echo>
-      		 <echo>
-		     /if you write "ant build"  then  Create a folder "build.dir/buildTT" and  compiles Java files
-		     /if you write "ant clean" then deleted folder "build.dir/buildTT"
+       
+		     /if you write "ant build"  then  Create a folder "build/classes" and  compiles Java files
+		     /if you write "ant clean" then deleted folder "build"  
 		     /if you write "ant run" then start class
 	        </echo>
       </target>
@@ -15,21 +14,14 @@
   </target>
   
  		 <target name="build" depends="clean">
- 		      <mkdir dir="build"/> 
-			 <javac srcdir="." destdir="build"/>
-				
-                             
- 
- 
-						
-                             
-                             
-				
+ 		      <mkdir dir="build/classes"/> 
+			 <javac srcdir="src/main/java" destdir="build/classes"/>
+                                                  
 		</target>	       
          
      <target name="run" depends="build">
 		
-        <java classpath="build" classname="HelloDate"/>      
+        <java classpath="build/classes" classname="HelloDate"/>      
                                                 
     </target>
 </project>
