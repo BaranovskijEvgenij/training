@@ -1,28 +1,32 @@
 <project name="training" default="help" basedir=".">
-       <target name="help">
-    	<echo>
-    	  Help for the build script...
-       
-		     /if you write "ant build"  then  Create a folder "build/classes" and  compiles Java files
-		     /if you write "ant clean" then deleted folder "build"  
-		     /if you write "ant run" then start class
-	        </echo>
-      </target>
+    <property name="src" value="src/main/java"/>
+    <property name="build" value="build"/>
+    <property name="classes" value="build/classes"/>
 
-  <target name="clean">
-    	<delete dir="build"/>
-  </target>
-  
- 		 <target name="build" depends="clean">
- 		      <mkdir dir="build/classes"/> 
-			 <javac srcdir="src/main/java" destdir="build/classes"/>
-                                                  
-		</target>	       
-         
-     <target name="run" depends="build">
-		
-        <java classpath="build/classes" classname="HelloDate"/>      
-                                                
+    <target name="help">
+        <echo>
+            /������� "ant build"- ������� ������� "build/classes" � ������������ ���� ����� java-��������� �� ��������
+            "src/main/java";
+            /������� "ant clean"- ������ ��������� ������ "build";
+            /������� "ant run"- �������� ����� �� ����������;
+
+        </echo>
+    </target>
+
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="build" depends="clean">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src/main/java" destdir="build/classes"/>
+
+    </target>
+
+    <target name="run" depends="build">
+
+        <java classpath="build/classes" classname="HelloDate"/>
+
     </target>
 </project>
 
