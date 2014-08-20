@@ -25,7 +25,7 @@
 
     <target name="run" depends="build">
 
-        <java classpath="build/classes" classname="HelloDate"/>
+        <java classpath="build/classes" classname="Str"/>
 
     </target>
 </project>
