@@ -1,31 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+                                     
 <project name="training" default="help" basedir=".">
+    
     <property name="src" value="src/main/java"/>
     <property name="build" value="build"/>
     <property name="classes" value="build/classes"/>
 
     <target name="help">
         <echo>
-            /������� "ant build"- ������� ������� "build/classes" � ������������ ���� ����� java-��������� �� ��������
-            "src/main/java";
-            /������� "ant clean"- ������ ��������� ������ "build";
-            /������� "ant run"- �������� ����� �� ����������;
+             /если прописать "ant build"- создадутся каталоги "build/classes" и туда скомпилируются java файлы;
+		/если прописать "ant clean"- будут удалены все созданные каталоги и подкаталоги;
+	           /если прописать "ant run"- запуститься на выполение скомпилированный класс;
+     	 
 
         </echo>
     </target>
 
     <target name="clean">
-        <delete dir="build"/>
+        <delete dir="${build}"/>
     </target>
 
     <target name="build" depends="clean">
-        <mkdir dir="build/classes"/>
-        <javac srcdir="src/main/java" destdir="build/classes"/>
+        <mkdir dir="${classes}"/>
+        <javac srcdir="${src}" destdir="${classes}"/>
 
     </target>
 
     <target name="run" depends="build">
 
-        <java classpath="build/classes" classname="Str"/>
+        <java classpath="${classes}" classname="Str"/>
 
     </target>
 </project>
