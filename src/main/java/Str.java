@@ -11,7 +11,7 @@ public class Str {
         ArrayList<String> arr = new ArrayList<String>();
 
 
-        BufferedReader file = new BufferedReader(new FileReader("C:\\training\\src\\main\\java\\text.txt"));
+        BufferedReader file = new BufferedReader(new FileReader(args[0]));
         String line;
         while ((line = file.readLine()) != null) {
             arr.add(line);
