@@ -9,11 +9,9 @@
 
     <target name="help">
         <echo>
-             /если прописать "ant build"- создадутся каталоги "build/classes" и туда скомпилируются java файлы;
-		/если прописать "ant clean"- будут удалены все созданные каталоги и подкаталоги;
-	           /если прописать "ant run"- запуститься на выполение скомпилированный класс;
-     	 
-
+	/если прописать "ant build"- создадутся каталоги "build/classes" и туда скомпилируются java файлы;
+/если прописать "ant clean"- будут удалены все созданные каталоги и подкаталоги;
+  /если прописать "ant run"- запуститься на выполение скомпилированный класс;
         </echo>
     </target>
 
@@ -22,8 +20,10 @@
     </target>
 
     <target name="build" depends="clean">
-        <mkdir dir="${classes}"/>
-        <javac srcdir="${src}" destdir="${classes}"/>
+        <mkdir dir="${classes}/RR"/>
+	<mkdir dir="${classes}/Str"/>
+        <javac srcdir="${src}/Str" destdir="${classes}/Str"/>
+	<javac srcdir="${src}/RR" destdir="${classes}/RR"/>
 
     </target>
 
@@ -33,6 +33,3 @@
 
     </target>
 </project>
-
-                                                                    
-						
